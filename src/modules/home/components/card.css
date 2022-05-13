@@ -1,0 +1,87 @@
+@keyframes scale3 {
+    to {
+      transform: scale(1.15);
+    }
+  }
+  @keyframes scale4 {
+    from{
+        transform: scale(1.15);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+.cards:hover{
+    transform-origin: left;
+    animation: scale3 200ms ease-in-out forwards;
+    z-index: 3;
+  }
+.cards {
+    transform-origin: left;
+    animation: scale4 200ms ease-in-out forwards;
+    margin: 5px;
+    padding: 10px;
+    width: 200px;
+    border-radius: 8px;
+    color: white;
+    position: relative;
+}
+.icon{
+opacity: 0.6;
+padding-right: 5px;
+}
+.blue {
+    background-color: #2298F1;
+}
+
+.green {
+    background-color: #66B92E;
+}
+
+.orange {
+    background-color: #DA932C;
+}
+
+.yelow {
+    background-color: #1ba593;
+}
+.blue-dark {
+    background-color: #1c3260;
+}
+
+.red {
+    background-color: #D65B4A;
+}
+.row{
+    justify-content: center;
+}
+.row-title-area{
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+}
+.title {
+    display: inline-block;
+    font-size: 12px;
+    padding: 10px 10px 0;
+    text-transform: uppercase;
+}	.stat {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 10px;
+    margin-top: 25px;
+    padding: 10px 10px 0;
+    text-transform: uppercase;
+}
+
+.title {
+    display: inline-block;
+    font-size: 11px;
+    padding: 10px 10px 0;
+    text-transform: uppercase;
+}
+
+.value {
+    font-size: 28px;
+    padding: 0 10px;
+}

@@ -1,0 +1,59 @@
+aside.menu-area{
+    position: fixed;
+    background-image: url("https://luxuryyachtcharters.co.za/lyc-manager/assets/img/tour-images/16328881141467781.jpg");
+    background-color: rgb(37, 43, 48);
+    box-shadow: var(--shadow);
+    width: 18%;
+    height: 100%;
+
+}
+.profileHeader{
+    font-size: 100;
+}
+
+hr.solid {
+    margin: 0px;
+    padding: 0px;
+  border-top: 0.2px solid rgba(255, 255, 255, 0.132);
+}
+.menu a{
+    display: block;
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+    padding: 18px;
+    font-weight: 300;
+}
+
+.menu a:hover{
+    background-color: rgb(46, 158, 228);
+    color: rgb(255, 255, 255);
+}
+.menu a:focus{
+    background-color: rgb(255, 255, 255);
+    color: rgb(46, 158, 228);
+}
+a{
+    font-weight: 500;
+    font-size: 15px; 
+}
+h1{
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 18px;
+    color:white
+}
+
+.avatar {
+    margin: 15px;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  p{
+      margin: 5px;
+      padding: 5px;
+    color:white
+  }

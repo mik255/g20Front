@@ -1,0 +1,16 @@
+
+.center{
+    justify-content: center;
+}
+
+.title-dash{
+    margin-top: 20px;
+    margin-left: 150px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+.body-cards {  
+    display: flex;  
+    padding: 25px;
+}

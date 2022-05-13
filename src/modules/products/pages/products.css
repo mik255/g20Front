@@ -1,0 +1,89 @@
+
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.card{
+    padding:50px;
+    margin: 20px;
+}
+.div{
+    justify-content: center;
+    margin-left: auto;
+  margin-right: auto;
+}
+@keyframes example {
+  0%   {width: 22%;}
+  100% {width: 25%;}
+}
+.productImg{
+  animation-name: example;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    border-radius: 8px;
+    background-color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    
+}
+.productImg:hover{
+  transform-origin: top;
+  animation: scale2 200ms ease-in-out forwards;
+}
+.productImgItem{
+  margin: 0;
+  padding: 0;
+  height: 110px;
+    width: 135px;
+    border-radius: 8px;
+    background-color: white;
+    -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+  border: 1px solid rgba(15, 113, 218, 0.345);
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.303), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+}
+.productImgItem:hover{
+  transform-origin: left;
+  animation: scale 200ms ease-in-out forwards;
+}
+.table td, .table th {
+  padding: 1rem;
+  vertical-align: middle; 
+  border-top: 1px solid #dee2e6;
+}
+.table{
+margin-top: 50px;
+}
+
+img{
+  object-fit: cover;
+}
+  img:hover { 
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.303), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  @keyframes scale {
+    to {
+      transform: scale(1.5);
+    }
+  }
+  @keyframes scale2 {
+    to {
+      transform: scale(1.1);
+    }
+  }
