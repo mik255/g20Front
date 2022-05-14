@@ -38,7 +38,7 @@ export default ()=>{
     }
     async function deletar(id){
         tableLoadingState(true)
-        await axios.delete(`https://g20-api-rest.herokuapp.com/users${id}`)
+        await axios.delete(`https://g20-api-rest.herokuapp.com/users/${id}`)
         getUsers() 
     }
     async function saveUser(user){
