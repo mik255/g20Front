@@ -39,7 +39,7 @@ export default class createCategories extends Component {
     }
     
     async delete(id) {
-        var response = await axios.delete(`https://g20-api-rest.herokuapp.com/category${id}`)
+        var response = await axios.delete(`https://g20-api-rest.herokuapp.com/category/${id}`)
         state.sucess = response.status == 200 ? true : false
         var response = await axios.get(' https://g20-api-rest.herokuapp.com/category', {})
         state.list = []
