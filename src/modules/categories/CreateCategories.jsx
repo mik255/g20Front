@@ -37,6 +37,19 @@ export default class createCategories extends Component {
         state.response = '...'
         this.setState(state)
     }
+    
+    async delete(id) {
+        var response = await axios.delete(`https://g20-api-rest.herokuapp.com/category${id}`)
+        state.sucess = response.status == 200 ? true : false
+        var response = await axios.get(' https://g20-api-rest.herokuapp.com/category', {})
+        state.list = []
+        response.data.forEach(function (category) {
+            state.list.unshift(category)
+        })
+        this.setState(state)
+        this.state = state
+    }
+
     async save() {
         const newObj = { ...state.category, _id: undefined }
         var response = await axios.post(' https://g20-api-rest.herokuapp.com/category', newObj)
@@ -79,7 +92,15 @@ export default class createCategories extends Component {
                             <i className="fa fa-pencil"></i>
                         </Link>
                         <button className="btn btn-danger ml-2"
-                            onClick={() => { }}>
+                        onClick={() => { console.log('delete')
+                        if(category.name !='Pedidos'){
+                            this.delete(category._id);
+                        }else{
+                            alert('VocÊ não pode excluir essa categoria')
+                        }
+                    
+                          }}
+                            >
                             <i className="fa fa-trash"></i>
                         </button>
 

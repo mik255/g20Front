@@ -36,6 +36,11 @@ export default ()=>{
         state.list = usersResponse.data
         tableLoadingState(false)    
     }
+    async function deletar(id){
+        tableLoadingState(true)
+        await axios.delete(`https://g20-api-rest.herokuapp.com/users${id}`)
+        getUsers() 
+    }
     async function saveUser(user){
         tableLoadingState(true)
         await axios.post(` https://g20-api-rest.herokuapp.com/users`,user)
@@ -100,7 +105,10 @@ export default ()=>{
                                             editCallback={e => {
                                                 
                                             }}
-                                            deleteCallback={e => { }}
+                                            deleteCallback={e => { 
+                                                console.log(e)
+                                                deletar(e.id)
+                                            }}
                                             resultsCallback={e => { }}
                                             thList={[
                                                 'nome', 'cpf', 'cnpj', 'senha','ações'

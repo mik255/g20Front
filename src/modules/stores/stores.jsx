@@ -47,6 +47,12 @@ export default (props) => {
        categoies = response.data
        tableLoadingState(false)
     }
+    async function onDelete(id) {
+        tableLoadingState(true)
+       const response = await axios.delete(`https://g20-api-rest.herokuapp.com/store${id}`,)
+       getStories()
+       tableLoadingState(false)
+    }
     useEffect(() => {
         getStories()
         getCategories()
@@ -162,7 +168,7 @@ export default (props) => {
 
                                         <RenderTable
                                             editCallback={e => { onStore(e) }}
-                                            deleteCallback={e => { }}
+                                            deleteCallback={e => { onDelete(e._id)}}
                                             resultsCallback={e => { }}
                                             thList={[
                                                 'pix', 'nome', 'count', 'ações'
