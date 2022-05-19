@@ -39,6 +39,7 @@ export default class createCategories extends Component {
     }
     
     async delete(id) {
+        console.log(id)
         var response = await axios.delete(`https://g20-api-rest.herokuapp.com/category/${id}`)
         state.sucess = response.status == 200 ? true : false
         var response = await axios.get(' https://g20-api-rest.herokuapp.com/category', {})
@@ -92,7 +93,7 @@ export default class createCategories extends Component {
                             <i className="fa fa-pencil"></i>
                         </Link>
                         <button className="btn btn-danger ml-2"
-                        onClick={() => { console.log('delete')
+                        onClick={() => { console.log(category._id)
                         if(category.name !='Pedidos'){
                             this.delete(category._id);
                         }else{
