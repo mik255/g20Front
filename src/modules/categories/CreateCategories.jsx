@@ -95,7 +95,7 @@ export default class createCategories extends Component {
                         <button className="btn btn-danger ml-2"
                         onClick={() => { console.log(category._id)
                         if(category.name !='Pedidos'){
-                            this.delete(category._id);
+                            this.delete(category.id);
                         }else{
                             alert('VocÊ não pode excluir essa categoria')
                         }

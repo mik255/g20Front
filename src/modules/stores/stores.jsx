@@ -168,7 +168,7 @@ export default (props) => {
 
                                         <RenderTable
                                             editCallback={e => { onStore(e) }}
-                                            deleteCallback={e => { onDelete(e._id)}}
+                                            deleteCallback={e => { onDelete(e.id)}}
                                             resultsCallback={e => { }}
                                             thList={[
                                                 'pix', 'nome', 'count', 'ações'
