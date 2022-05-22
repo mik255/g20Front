@@ -11,14 +11,7 @@ export const getProductsFromStoreById = (storeId) => {
         ).catch(e => console.log)
     }
 }
-export const getStoreInfoFromId = (storeId) => {
-    return (dispatch) => {
-        axios.get(`http://localhost:3000/receipts/storeReceipts/${storeId}`).then(res => {
-            dispatch(readReceiptProducts({ ReceiptProducts: res.data.products }))
-        }
-        ).catch(e => console.log)
-    }
-}
+
 export const insertProductIntoStore = (storeId, product) => {
     return api.post(`/store/products`, { storeId: storeId, product: product })
 }
