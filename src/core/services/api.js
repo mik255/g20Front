@@ -4,3 +4,4 @@ export default axios.create({
    // baseURL:'http://localhost:3000'
    baseURL:'https://g20-api-rest.herokuapp.com'
 })
+

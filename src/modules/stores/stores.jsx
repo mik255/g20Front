@@ -53,6 +53,12 @@ export default (props) => {
        getStories()
        tableLoadingState(false)
     }
+     async function onDelete(id) {
+        tableLoadingState(true)
+       const response = await axios.delete(`https://g20-api-rest.herokuapp.com/store/${id}`,)
+       getStories()
+       tableLoadingState(false)
+    }
     useEffect(() => {
         getStories()
         getCategories()

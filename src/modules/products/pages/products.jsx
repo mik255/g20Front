@@ -1,28 +1,39 @@
-import React, {useEffect } from "react";
+import React, {useEffect,useState } from "react";
 import Main from '../../template/Main'
 import 'font-awesome/css/font-awesome.min.css'
 import './products.css'
 import { useSelector, useDispatch } from "react-redux";
-import { getProductsFromStoreById,deleteStoreProduct} from '../redux/actions'
+import { getProductsFromStoreById,deleteStoreProduct, getStoreInfoFromId} from '../redux/actions'
 import { openEditProductModal} from '../components/modal/redux/actions'
 import Modal from '../components/modal/modal.js';
 import ProductRegister from "../components/productRegister/productRegister";
 import SnackBar from "../../../shared/components/snackBar/snackBar";
 import $ from 'jquery';
+import axios from 'axios';
+import ProgressIndicator from "../../../shared/components/loading/progressIndicator";
+var totalValueFromAllReceipts = 0;
 export default (props) => {
-
     const dispatch = useDispatch()
-    const ProductReducer = useSelector((state => state.productReducer))
-   
-   console.log(ProductReducer)
+    const ProductReducer = useSelector((state => state.productReducer)) 
+    const [loadingState, tableLoadingState] = useState(true)
     const storeId = props.storeId
+    
+        async function getStoreInfo(id) {
+            tableLoadingState(true)
+           const response = await axios.get(`https://g20-api-rest.herokuapp.com/receipts/storeReceipts/${id}`,)
+           totalValueFromAllReceipts = response.data.totalValueFromAllReceipts
+           tableLoadingState(false)
+           console.log("aqui")
+           console.log(totalValueFromAllReceipts)
+        }
+    
 
     function getProducts(){
-
         dispatch(getProductsFromStoreById(storeId))
         myFunction()
     }
     useEffect(() => {
+        getStoreInfo(storeId)
         getProducts()
     },[]);
 
@@ -92,6 +103,8 @@ export default (props) => {
     return (
         <Main>
             <Modal/>
+            <div>Total da loja</div> R$&nbsp;
+            {loadingState==true?<ProgressIndicator></ProgressIndicator>:totalValueFromAllReceipts}
             <ProductRegister storeId={storeId}/>
             {renderTable()}
             <SnackBar message ={'Atualização feita com sucesso'}/>

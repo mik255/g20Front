@@ -1,11 +1,20 @@
 import api from "../../../core/services/api";
+import axios from "axios";
 import { readProducts, deleteProduct, } from "./reducer";
 
 export const getProductsFromStoreById = (storeId) => {
     return (dispatch) => {
         api.get(`/store/${storeId}`).then(res => {
-            console.log(res.data.products)
+            
             dispatch(readProducts({ products: res.data.products }))
+        }
+        ).catch(e => console.log)
+    }
+}
+export const getStoreInfoFromId = (storeId) => {
+    return (dispatch) => {
+        axios.get(`http://localhost:3000/receipts/storeReceipts/${storeId}`).then(res => {
+            dispatch(readReceiptProducts({ ReceiptProducts: res.data.products }))
         }
         ).catch(e => console.log)
     }
